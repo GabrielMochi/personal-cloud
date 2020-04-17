@@ -1,10 +1,12 @@
-const express = require('express')
-const consola = require('consola')
+require('./config/envs').load()
+
+const http = require('http')
 const { Nuxt, Builder } = require('nuxt')
-const app = express()
+const config = require('../nuxt.config.js')
+const app = require('./app')
+const logger = require('./config/logger')
 
 // Import and Set Nuxt.js options
-const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 
 async function start () {
@@ -24,12 +26,11 @@ async function start () {
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
-  // Listen the server
-  app.listen(port, host)
+  const server = http.createServer(app)
 
-  consola.ready({
-    message: `Server listening on http://${host}:${port}`,
-    badge: true
+  // Listen the server
+  server.listen(port, host, () => {
+    logger.info(`Server listening on http://${host}:${port}`)
   })
 }
 
