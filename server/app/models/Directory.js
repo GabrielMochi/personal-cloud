@@ -31,7 +31,7 @@ const rootDirectoryPath = path.resolve(__dirname, '../../data')
  * @returns {object}
  */
 async function getRootDirectory (options) {
-  const rootDirectory = await this.findOne({ name: 'root' }, options)
+  const rootDirectory = await this.findOne({ name: '.' }, options)
   return rootDirectory
 }
 
@@ -42,7 +42,7 @@ async function getRootDirectory (options) {
 async function directoriesCreator (relativePath) {
   const directoriesNames = relativePath
     .split(path.sep)
-    .filter(directoryName => directoryName !== '')
+    .filter(directoryName => directoryName !== '' && directoryName !== '.')
 
   let lastDirectory = await this.getRootDirectory({ directories: true })
   let lastDirectoryPath = rootDirectoryPath
@@ -199,7 +199,7 @@ async function createRootDirectory () {
     let rootDirectory = await Directory.getRootDirectory()
 
     if (!rootDirectory) {
-      rootDirectory = new Directory({ name: 'root', parentDirectory: null })
+      rootDirectory = new Directory({ name: '.', parentDirectory: null })
 
       await rootDirectory.save()
       logger.info('Root directory created successfully')

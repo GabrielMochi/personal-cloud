@@ -1,5 +1,7 @@
 const colors = require('vuetify/es5/util/colors').default
 
+console.log(process.env.BASE_URL)
+
 module.exports = {
   mode: 'universal',
   /*
@@ -53,6 +55,8 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    baseURL: process.env.BASE_URL || '',
+    url: '/api'
   },
   /*
   ** vuetify module configuration
@@ -61,12 +65,20 @@ module.exports = {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
       themes: {
+        light: {
+          primary: colors.grey.darken4,
+          accent: colors.grey.base,
+          secondary: colors.grey.lighten5,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        },
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
+          primary: colors.grey.lighten4,
+          accent: colors.grey.base,
+          secondary: colors.grey.darken4,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
