@@ -22,7 +22,8 @@
       <v-col
         v-for="directory in directories"
         :key="directory._id"
-        cols="6"
+        cols="12"
+        sm="6"
         md="3"
         lg="2"
         class="justify-center"
@@ -41,7 +42,7 @@
               mdi-folder
             </v-icon>
           </div>
-          <v-card-title class="justify-center py-0">
+          <v-card-title class="text-ellipsis justify-center pa-0">
             {{ directory.name }}
           </v-card-title>
         </v-card>
@@ -49,7 +50,8 @@
       <v-col
         v-for="file in files"
         :key="file._id"
-        cols="6"
+        cols="12"
+        sm="6"
         md="3"
         lg="2"
         class="justify-center"
@@ -66,14 +68,14 @@
               mdi-crop-portrait
             </v-icon>
           </div>
-          <v-card-title class="justify-center py-0">
+          <v-card-title class="text-ellipsis justify-center py-0">
             {{ file.name }}
           </v-card-title>
         </v-card>
       </v-col>
     </v-row>
     <v-speed-dial
-      absolute
+      fixed
       bottom
       right
       direction="left"
@@ -229,6 +231,12 @@ export default {
   background: none !important;
 }
 
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .item-card {
   margin: auto;
 }
@@ -241,43 +249,21 @@ export default {
   width: 160px;
 }
 
+.item-card.md,
+.item-card.sm,
+.item-card.xs,
 .item-card.lg {
-  margin: auto;
   width: 128px;
-}
-
-.item-card.md {
-  margin: auto;
-  width: 96px;
-}
-
-.item-card.sm {
-  margin: auto;
-  width: 64px;
-}
-
-.item-card.xs {
-  margin: auto;
-  width: 32px;
 }
 
 .item-icon-xl {
   font-size: 160px;
 }
 
+.item-icon-md,
+.item-icon-sm,
+.item-icon-xs,
 .item-icon-lg {
   font-size: 128px;
-}
-
-.item-icon-md {
-  font-size: 96px;
-}
-
-.item-icon-sm {
-  font-size: 64px;
-}
-
-.item-icon-xs {
-  font-size: 32px;
 }
 </style>
