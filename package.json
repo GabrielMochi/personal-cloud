@@ -7,7 +7,6 @@
   "main": "server/index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-    "heroku-postbuild": "",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
@@ -29,12 +28,12 @@
     "mongoose": "^5.9.7",
     "morgan": "^1.10.0",
     "nuxt": "^2.0.0",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "@nuxtjs/vuetify": "^1.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
-    "@nuxtjs/vuetify": "^1.0.0",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
