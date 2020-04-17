@@ -5,6 +5,7 @@
   "author": "Gabriel Mochi Ribeiro &lt;gmochi56@icloud.com&gt;",
   "private": true,
   "main": "server/index.js",
+  "heroku-run-build-script": false,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
@@ -29,7 +30,6 @@
     "morgan": "^1.10.0",
     "nuxt": "^2.0.0",
     "winston": "^3.2.1",
-    "@nuxtjs/vuetify": "^1.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
